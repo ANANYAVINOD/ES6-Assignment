@@ -15,7 +15,7 @@ const engMovies  = [
         title : "Shawshank Redemption",
         actor : "Morgan Freeman",
         genre : "Drama",
-        date  : "22-09-1994",
+        date  : "05-09-1994",
         rating : 4.3,
         academyAward : "Yes"
 
@@ -25,7 +25,7 @@ const engMovies  = [
         title : "Midnight Sun",
         actor : "Bella",
         genre : "Drama",
-        date  : "22-03-2022",
+        date  : "11-03-2022",
         rating : 2.8,
         academyAward : "No"
 
@@ -35,7 +35,7 @@ const engMovies  = [
         title : "Insidious",
         actor : "Lin Shayne",
         genre : "Horror",
-        date  : "31-03-2011",
+        date  : "04-03-2011",
         rating : 3,
         academyAward : "Yes"
 
@@ -45,7 +45,7 @@ const engMovies  = [
         title : "Ocean 11",
         actor : "Anne Hathway",
         genre : "Drama",
-        date  : "22-09-2015",
+        date  : "10-09-2015",
         rating : 3.1,
         academyAward : "No"
 
@@ -55,7 +55,7 @@ const engMovies  = [
         title : "Eternal Sunshine of a Spotless Mind",
         actor : "Bella",
         genre : "Drama",
-        date  : "22-09-1994",
+        date  : "09-30-1994",
         rating : 4.4,
         academyAward : "Yes"
 
@@ -67,7 +67,7 @@ const hindMovies = [
         title : "Again",
         actor : "Amitabh Bachan",
         genre : "Drama",
-        date  : "16-09-2016",
+        date  : "09-16-2016",
         rating : 4.1,
         academyAward : "Yes"
     },
@@ -76,7 +76,7 @@ const hindMovies = [
         title : "Jab We Met",
         actor : "Kareena Kapoor",
         genre : "RomCom",
-        date  : "26-10-2007",
+        date  : "10-20-2007",
         rating : 2.9,
         academyAward : "No"
 
@@ -88,7 +88,7 @@ const malMovies = [
         title : "Lucifer",
         actor : "Mohanlal",
         genre : "Action",
-        date  : "28-03-2019",
+        date  : "01-03-2019",
         rating : 3.5,
         academyAward : "No"
     }
@@ -99,7 +99,7 @@ const tamMovies = [
         title : "Mersal",
         actor : "Vijay",
         genre : "Action",
-        date  : "18-10-2017",
+        date  : "10-18-2017",
         rating : 2,
         academyAward : "Yes"
     },
@@ -108,7 +108,7 @@ const tamMovies = [
         title : "Jilla",
         actor : "Mohanlal",
         genre : "Drama",
-        date  : "10-01-2014",
+        date  : "10-22-2021",
         rating : 3,
         academyAward : "No"
     }
@@ -148,18 +148,23 @@ ratedMovies.forEach (rate => { console.log(rate.title + " " + rate.language);})
 /*7.Check if all the movies are released
 8.Check if any movie is yet to be released */
 
-const relDate = movies.map(allMovie => allMovie.date);
+const relDate = movies.map(allMovie => new Date(allMovie.date));
 console.log(relDate);
+
  
 const releaseCheck = movies.filter(allMovie =>new Date(allMovie.date).getFullYear() < new Date().getFullYear() ?
-         console.log(allMovie.title +" "+ "Released") : console.log(allMovie.title +" "+ "Not released"));
-/*const today = new Date().getFullYear();
-for(let release of movies) {
-    let releaseDate = new Date(release.date).getFullYear();
-    //console.log(releaseDate);
-    if (releaseDate > today) console.log(release.title +" "+ "Not released");
-    else console.log(release.title +" "+ "Released");
-}   */    
+        console.log(allMovie.title +": "+ "Released") : console.log(allMovie.title +": "+ "Not released")); 
+
+/*const filterByRelease = () => {
+    const today = Date.now()
+    return movies.filter(function (item) {
+      if(new Date(item.date).getTime() < today) console.log(item.title + " " +"released");
+      else console.log(item.title + " " + "not released");
+    });
+  };
+  
+filterByRelease();*/
+
 
 /*9.Search for movies by a specific actor and return a list with the following data :
 (Movie title , genre , academy award winner or not) */
