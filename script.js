@@ -230,8 +230,9 @@ console.log("Average rating for Bella's movie is: " + rating1);
 
 /*14. Sort all the movies alphabetically by title */
 
-console.log(movies.sort((a,b) => (a.title < b.title) ? 1 : -1));
+console.log(movies.sort((a,b) => (a.title > b.title) ? 1 : -1));
 
 /*15. Sort all the movies by rating */
 
-console.log(movies.sort((a, b) => (a.rating < b.rating) ? 1 : -1));
+const moviesCopy = [...movies];
+console.log(moviesCopy.sort((a, b) => (a.rating < b.rating) ? 1 : -1));
